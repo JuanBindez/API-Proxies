@@ -4,9 +4,9 @@ set -e
 
 VERSION=0
 MINOR=0
-PATCH=1
+PATCH=2
 EXTRAVERSION=""
-COMMIT="Init: Projeto iniciado Proxies API
+COMMIT="Update: Atualizado o vps
 
 
 
