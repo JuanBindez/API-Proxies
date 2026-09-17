@@ -5,7 +5,7 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 10.10.0.0/24 # <--- Altere aqui
+        - subnet: 172.25.0.0/16
 
 services:
   vps:
@@ -14,11 +14,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - SERVER2_URL=https://10.10.0.2:8080 # <--- Altere o IP do server2 aqui também
+      - SERVER2_URL=https://172.25.0.2:8080
       - CLIENT_ID=vps_id
       - CLIENT_SECRET=super_secret_key_123
     networks:
       rede-privada:
-        ipv4_address: 10.10.0.1 # <--- Altere aqui
+        ipv4_address: 172.25.0.1
     volumes:
       - ./certs/server2.crt:/app/certs/server2.crt:ro

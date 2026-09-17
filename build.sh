@@ -4,7 +4,7 @@ set -e
 
 VERSION=0
 MINOR=0
-PATCH=3
+PATCH=4
 EXTRAVERSION=""
 COMMIT="Update: Atualizado o vps
 
