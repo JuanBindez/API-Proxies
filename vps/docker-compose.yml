@@ -1,0 +1,25 @@
+version: '3.8'
+
+networks:
+  rede-privada:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+
+services:
+  servidor1:
+    build: .
+    container_name: servidor1_proxy
+    ports:
+      - "3000:3000"  # Porta exposta para a sua máquina real acessar
+    environment:
+      - SERVIDOR2_URL=https://192.168.100.2:8080
+      - CLIENT_ID=servidor1_id
+      - CLIENT_SECRET=super_secret_key_123
+    networks:
+      rede-privada:
+        ipv4_address: 192.168.100.1  # IP fixo na rede privada
+    volumes:
+      # Mapeia o certificado público gerado no Servidor 2
+      - ./certs/servidor2.crt:/app/certs/servidor2.crt:ro
