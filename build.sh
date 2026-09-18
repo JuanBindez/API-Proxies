@@ -4,9 +4,9 @@ set -e
 
 VERSION=0
 MINOR=0
-PATCH=5
+PATCH=6
 EXTRAVERSION=""
-COMMIT="Update: Atualizado o vps
+COMMIT="Update: Atualizado o server2
 
 
 

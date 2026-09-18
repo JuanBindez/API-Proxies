@@ -3,17 +3,15 @@ version: '3.8'
 networks:
   rede-privada:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.100.0/24
 
 services:
   server2:
     build: .
     container_name: server2_api
+    ports:
+      - "8080:8080"
     networks:
-      rede-privada:
-        ipv4_address: 192.168.100.2  # IP fixo do server2
+      - rede-privada
     volumes:
       - ./certs/server2.crt:/app/certs/server2.crt:ro
       - ./certs/server2.key:/app/certs/server2.key:ro
