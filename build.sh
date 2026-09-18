@@ -4,7 +4,7 @@ set -e
 
 VERSION=0
 MINOR=0
-PATCH=6
+PATCH=7
 EXTRAVERSION=""
 COMMIT="Update: Atualizado o server2
 

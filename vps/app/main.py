@@ -38,7 +38,12 @@ async def obter_token_oauth(client: httpx.AsyncClient) -> str:
 @app.get("/consulta-privada")
 async def consulta_privada():
     """Endpoint público acessível pela máquina real."""
-    async with httpx.AsyncClient(verify=CERT_PATH, timeout=10.0) as client:
+    import ssl
+
+    ssl_context = ssl.create_default_context(cafile=CERT_PATH)
+    ssl_context.check_hostname = False
+
+    async with httpx.AsyncClient(verify=ssl_context, timeout=10.0) as client:
         # 1. Obter Token no server2
         token = await obter_token_oauth(client)
 
